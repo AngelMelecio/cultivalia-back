@@ -32,7 +32,24 @@ THIRD_APPS = [
     'rest_framework',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'apps.Asesor',
+    'apps.Beneficiario',
+    'apps.CodigoReferido',
+    'apps.Contrato',
+    'apps.Cuenta',
+    'apps.DetalleVenta',
+    'apps.Inversor',
+    'apps.Jima',
+    'apps.Oferta',
+    'apps.Operacion',
+    'apps.Precio',
+    'apps.Predio',
+    'apps.Usuario',
+    'apps.Perfil',
+    'apps.Administrador',
+    'apps.Venta'
+]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
@@ -45,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = "Usuario.Usuario"
 
 ROOT_URLCONF = 'backend.urls'
 
