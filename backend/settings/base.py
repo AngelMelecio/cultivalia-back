@@ -33,6 +33,7 @@ THIRD_APPS = [
 ]
 
 LOCAL_APPS = [
+    'apps.Administrador',
     'apps.Asesor',
     'apps.Beneficiario',
     'apps.CodigoReferido',
@@ -43,13 +44,13 @@ LOCAL_APPS = [
     'apps.Jima',
     'apps.Oferta',
     'apps.Operacion',
+    'apps.Perfil',
     'apps.Precio',
     'apps.Predio',
     'apps.Usuario',
-    'apps.Perfil',
-    'apps.Administrador',
     'apps.Venta'
 ]
+
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
