@@ -1,15 +1,19 @@
 from django.db import models
+from django.utils import timezone
 from backend.constants.base import *
 from apps.Asesor.models import Asesor
 from apps.Beneficiario.models import Beneficiario
 from apps.Usuario.models import Usuario
-from apps.Perfil.models import Perfil
 
 class Inversor(models.Model):
     idInversor = models.AutoField(auto_created=True, primary_key=True)
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, **NOT_NULL)
-    perfil = models.OneToOneField(Perfil, on_delete=models.CASCADE, **NOT_NULL)
     
+    fechaNacimiento = models.DateField(blank=True, default=timezone.now) 
+    sexo = models.CharField( max_length=20, choices=SEXO_CHOICES, **NOT_NULL, default='Masculino')
+    nacionalidad = models.CharField(max_length=45, blank=True)
+    telefono = models.CharField(max_length=45, blank=True)
+
     tipoIdentificacion = models.CharField(max_length=45, **NOT_NULL)
     numeroIdentificacion = models.CharField(max_length=45, **NOT_NULL)
     credencial = models.ImageField(upload_to=f'{IMAGENES_PATH}credenciales/', **NOT_NULL)
@@ -22,6 +26,8 @@ class Inversor(models.Model):
     pais = models.CharField(max_length=45, **NOT_NULL)
     
     dineroDisponible = models.DecimalField(max_digits=10, decimal_places=2, **NOT_NULL)
+    
+    # quitar
     dineroInvertido = models.DecimalField(max_digits=10, decimal_places=2, **NOT_NULL) # Ask Cesar
     
     asesor = models.ForeignKey(Asesor, on_delete=models.PROTECT)
@@ -31,4 +37,4 @@ class Inversor(models.Model):
 
 
     def __str__(self):
-        return f'{self.perfil.nombre} {self.perfil.apellidos}'
+        return f'{self.usuario.first_name} {self.usuario.last_name}'

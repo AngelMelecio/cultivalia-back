@@ -12,7 +12,6 @@ class Migration(migrations.Migration):
         ('Asesor', '0001_initial'),
         ('Beneficiario', '0001_initial'),
         ('CodigoReferido', '0001_initial'),
-        ('Perfil', '0001_initial'),
     ]
 
     operations = [
@@ -35,7 +34,6 @@ class Migration(migrations.Migration):
                 ('asesor', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Asesor.asesor')),
                 ('beneficiario', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Beneficiario.beneficiario')),
                 ('codigoReferido', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='codigo_referido', to='CodigoReferido.codigoreferido')),
-                ('perfil', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='Perfil.perfil')),
             ],
         ),
     ]

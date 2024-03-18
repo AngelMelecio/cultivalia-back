@@ -33,7 +33,6 @@ THIRD_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.Administrador',
     'apps.Asesor',
     'apps.Beneficiario',
     'apps.CodigoReferido',
@@ -44,7 +43,6 @@ LOCAL_APPS = [
     'apps.Jima',
     'apps.Oferta',
     'apps.Operacion',
-    'apps.Perfil',
     'apps.Precio',
     'apps.Predio',
     'apps.Usuario',

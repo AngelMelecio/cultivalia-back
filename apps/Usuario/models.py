@@ -9,11 +9,19 @@ ROL_CHOICES = [
 ]
 
 class Usuario(AbstractUser):
-    correo = models.CharField(max_length=45, **NOT_NULL)
-    telefono = models.CharField(max_length=45, **NOT_NULL)
+    
+    first_name = models.CharField( max_length=45, blank=True)
+    last_name = models.CharField( max_length=45, blank=True)
+    
+    email = models.EmailField(max_length=45, unique=True, **NOT_NULL)
+    
+    tipo = models.CharField(choices=ROL_CHOICES, max_length=45, blank=True )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    tipo = models.CharField(choices=ROL_CHOICES, max_length=45, **NOT_NULL)
+    date_joined = models.DateTimeField(auto_now_add=True)
     
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
     def __str__(self):
-        return f'{self.nombreUsuario}'
+        return f'{self.username}'

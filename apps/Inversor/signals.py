@@ -5,6 +5,5 @@ from apps.CodigoReferido.models import CodigoReferido
 
 @receiver(post_save, sender=Inversor)
 def create_referido_code(sender, instance, created, **kwargs):
-    print('Signal!!')
     if created:
         CodigoReferido.objects.create(inversor=instance)
